@@ -1,0 +1,26 @@
+{
+  "name": "Testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"bash run_dev_server.sh\" \"nodemon\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "eslint": "^7.31.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.12",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
