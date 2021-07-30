@@ -51,7 +51,7 @@ export class FarmHandler {
                         return (acc + temperature/arr.length)
                     }, 0);
                 }), farmId: worker.farm_id }
-            } else { return 'no miner stats'}
+            } else { return {avg: 'no stats', farmId: worker.farm_id}}
             
         })
         return avgTemp;

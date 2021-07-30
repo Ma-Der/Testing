@@ -8,7 +8,6 @@ export class FarmController {
             const workers = await FarmHandler.getWorkers();
             const avgTemp = await FarmHandler.getAvgWorkerTemperature();
             const worker = workers.flat();
-            
             return res.render('index', {
             test: {
                 farms: farms, 

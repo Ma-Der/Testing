@@ -4,3 +4,8 @@ td {
   border: 2px solid black;
   padding: 5px;
 }
+
+.title {
+  padding: 10px;
+  max-width: 300px;
+}
