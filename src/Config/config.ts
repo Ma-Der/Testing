@@ -8,6 +8,7 @@ export const initializeServer = (): Express => {
 
     app.use(express.json());
     app.use(express.urlencoded({extended: true}));
+    app.use('/css' , express.static(__dirname + 'Public/css'));
 
     app.set("view engine", "ejs");
     app.set("views", path.resolve() + '/src/Views');

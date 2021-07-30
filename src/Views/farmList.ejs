@@ -1,0 +1,14 @@
+    <tr>
+        <td><%= farm.name %></td>
+        <td><ul><% worker.forEach((work) => { %>
+            <% if(farm.id === work.farm_id) { %>
+                <li><%= work.name %></li>
+            <% } %>
+            
+        <% }); %></ul></td>
+        <td><ul><% avgTemp.forEach((temp) => { %>
+            <% if(farm.id === temp.farmId) { %>
+                <li><%= temp.avg %> C</li>
+            <% } %>
+        <% }); %></ul></td>
+    </tr>
