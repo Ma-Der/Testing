@@ -3,7 +3,7 @@ import { accessToken } from '../Config/envVariables';
 
 export class FarmHandler {
     private static baseUrl = 'https://api2.hiveos.farm/api/v2';
-
+    
     public static async getFarms() {
 
         return axios(`${this.baseUrl}/farms`, {
@@ -47,13 +47,19 @@ export class FarmHandler {
         const avgTemp = workers.map(worker => { 
             if(worker.miners_stats) {
                 return { avg: worker.miners_stats.hashrates.map(stat => {
-                    return stat.temps.reduce((acc: number, temperature: number, index: number, arr: Array<number>) => {
-                        return (acc + temperature/arr.length)
-                    }, 0);
+                    return this.average(stat.temps);
                 }), farmId: worker.farm_id }
-            } else { return {avg: 'no stats', farmId: worker.farm_id}}
+            } else { 
+                return {avg: 'no stats', farmId: worker.farm_id}
+            }
             
         })
         return avgTemp;
+    }
+
+    private static average(temperatureArr: number[]): number {
+        return temperatureArr.reduce((acc: number, temperature: number, index: number, arr: Array<number>) => {
+            return acc + temperature/arr.length
+        }, 0);
     }
 }
