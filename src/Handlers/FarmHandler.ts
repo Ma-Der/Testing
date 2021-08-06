@@ -45,14 +45,16 @@ export class FarmHandler {
         const workers = farmsWorkers.flat();
 
         const avgTemp = workers.map(worker => { 
+            const farmId = worker.farmId;
+
             if(worker.miners_stats) {
-                const averageTemperature = worker.miners_stats.hashrates.map(stat => {
+                const averageTemperature: number[] = worker.miners_stats.hashrates.map(stat => {
                     return this.average(stat.temps);
                 });
-                
-                return { avg: averageTemperature, farmId: worker.farm_id }
+
+                return { avg: averageTemperature, farmId }
             } else { 
-                return {avg: 'no stats', farmId: worker.farm_id}
+                return {avg: 'no stats', farmId}
             }
             
         })
